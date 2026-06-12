@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reestar - Responsive</title>
+<style>
+    /* Global Styles & Box Sizing */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #fff;
+        /* Desktop: Lock to screen height to prevent scrolling */
+        height: 100vh; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        flex-shrink: 0; /* Prevents header from collapsing */
+    }
+
+    header h1 {
+        margin: 0 0 5px 0;
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+
+    header nav a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 1em;
+    }
+
+    header nav span {
+        color: #ccc;
+        margin: 0 5px;
+    }
+
+    /* Menu Grid Styles (Fluid Desktop Layout) */
+    .menu-container {
+        flex: 1; /* Takes up all available space between header and footer */
+        display: flex;
+        justify-content: center;
+        gap: 1vw;
+        padding: 1vw;
+        min-height: 0; /* CRITICAL: Allows the container to shrink smaller than its contents */
+    }
+
+    .card {
+        flex: 1; /* Cards share width equally */
+        max-width: 300px;
+        border: 2px solid #000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-img-container {
+        flex: 1; /* Image container stretches to fill available card height */
+        min-height: 0; /* CRITICAL: Allows image to shrink vertically */
+        position: relative;
+        border-bottom: 2px solid #000;
+    }
+
+    .card-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures image fills space without stretching */
+    }
+
+
+    .card-content {
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+        flex-shrink: 0; /* Protects text from being squished */
+    }
+
+    .card-title {
+        font-size: 1em;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+    }
+
+    .card-desc {
+        font-size: 0.9em;
+        margin: 0 0 10px 0;
+        color: #000;
+        line-height: 1.2;
+    }
+
+    .order-btn {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 6px 14px;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: 0.9em;
+        cursor: pointer;
+    }
+
+    /* Footer / Contact Styles */
+    footer {
+        background-color: #000;
+        color: #fff;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0; /* Prevents footer from collapsing */
+    }
+
+    footer h2 {
+        margin: 0 0 15px 0;
+        font-size: 1.5em;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .form-group {
+        display: flex;
+        margin-bottom: 6px;
+        align-items: stretch;
+    }
+
+    .form-group label {
+        width: 60px;
+        text-align: right;
+        padding-right: 10px;
+        align-self: center;
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+
+    .form-group input {
+        flex-grow: 1;
+        padding: 6px;
+        border: none;
+        background-color: #d3d3d3;
+        font-family: inherit;
+        font-size: 0.9em;
+    }
+
+    .send-btn {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+        background-color: #c5c805;
+        border: none;
+        padding: 8px;
+        margin-top: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        color: #000;
+        font-weight: bold;
+    }
+
+    /* =========================================
+       MOBILE RESPONSIVE LAYOUT
+       ========================================= */
+    @media (max-width: 768px) {
+        body {
+            height: auto; /* Remove fixed height on mobile so user can scroll naturally */
+            min-height: 100vh;
+        }
+
+        .menu-container {
+            flex-direction: column; /* Stacks the cards vertically */
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            height: 450px; /* Gives cards a fixed readable height on mobile */
+        }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Reestar</h1>
+        <nav>
+            <a href="#">Home</a> <span>|</span> <a href="#">Receipe</a> <span>|</span> <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main class="menu-container">
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80" alt="Poke Bowl">
+            </div>
+            <div class="card-content">
+                <p class="card-title">Tangy Tamarind Prawn Curry</p>
+                <p class="card-desc">Something which is very<br>delicious</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80" alt="Pasta">
+            </div>
+            <div class="card-content">
+                <p class="card-title">Tangy Tamarind Prawn Curry</p>
+                <p class="card-desc">Something which is very<br>delicious</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500&q=80" alt="Rice Bowl">
+                <div class="play-button"></div>
+            </div>
+            <div class="card-content">
+                <p class="card-title">Tangy Tamarind Prawn Curry</p>
+                <p class="card-desc">Something which is very<br>delicious</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1650134973809-d8c3a2da59ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pancakes">
+            </div>
+            <div class="card-content">
+                <p class="card-title">Tangy Tamarind Prawn Curry</p>
+                <p class="card-desc">Something which is very<br>delicious</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" id="age" placeholder="Age">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email">
+            </div>
+            <button class="send-btn">Send</button>
+        </div>
+    </footer>
+
+</body>
+</html>
